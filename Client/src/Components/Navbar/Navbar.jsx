@@ -38,7 +38,7 @@ const Navbar = ({ user }) => {
     handleCloseUserMenu();
     
     try {
-      const response = await axios.post("http://localhost:8080/user/logout");
+      const response = await axios.post("https://registration-form-1-ixkc.onrender.com/user/logout");
       navigate("/login")
       const { message } = response.data;
       logoutUser();

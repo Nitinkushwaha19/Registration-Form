@@ -35,7 +35,7 @@ const Signup = () => {
     event.preventDefault();
 
     try{
-      const response = await axios.post("http://localhost:8080/user/signup",formData)
+      const response = await axios.post("https://registration-form-1-ixkc.onrender.com/user/signup",formData)
       const {message,success} = response.data;
       if(success){
         toast.success(message);
