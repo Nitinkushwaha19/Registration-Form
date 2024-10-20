@@ -24,6 +24,10 @@ app.use((err, req, res, next) => {
     return res.status(500).json({ message: err.message, success: false });
 });
 
+app.get("/",(req,res) => {
+    res.send("Listining to root page");
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
 })
