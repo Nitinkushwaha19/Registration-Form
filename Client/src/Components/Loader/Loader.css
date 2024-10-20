@@ -16,8 +16,8 @@
     animation: spin 1s linear infinite;
     /* opacity: 0.4; */
     position:absolute;
-    bottom: 270px;
-    right: 300px;
+    bottom: 350px;
+    left: 750px;
     z-index: 3;
 }
 
