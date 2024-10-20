@@ -19,6 +19,10 @@ app.use('/user', AuthRouter);
 app.use('/products', ProductRouter);
 
 
+app.get("/",(req,res) => {
+    res.send("Listining to root page");
+})
+
 app.use((err, req, res, next) => {
     console.log(err.message);
     return res.status(500).json({ message: err.message, success: false });
