@@ -7,6 +7,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   // Load user from localStorage when the app initializes
   useEffect(() => {
@@ -32,7 +33,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, loginUser, logoutUser, loading  }}>
+    <UserContext.Provider value={{ user, loginUser, logoutUser, setLoader, loader, loading  }}>
       {children}
     </UserContext.Provider>
   );

@@ -6,6 +6,7 @@ import SignUp from "./Components/Signup";
 import Index from "./Components/Index.jsx";
 import UserContext from "./Components/context/UserProvider";
 import './App.css'
+import Loader from "./Components/Loader/Loader.jsx";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     loading?<div>Loading...</div>:<>
       <Router>
         <Navbar user={user} />
+        <Loader/>
         <Routes>
           user ? <Route path="/index"  element={<Index user = {user}/>} /> 
           <Route path="/" element = { <Navigate to="/login" /> } />

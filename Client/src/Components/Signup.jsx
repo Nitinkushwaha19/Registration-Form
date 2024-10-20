@@ -1,8 +1,9 @@
 import { Grid, Paper, TextField, Typography, Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import {useNavigate,Link} from "react-router-dom";
 import {toast} from "react-toastify";
+import UserContext from "./context/UserProvider";
 
 const Signup = () => {
   const paperStyle = {
@@ -31,12 +32,16 @@ const Signup = () => {
     });
   };
 
+  const { loader, setLoader } = useContext(UserContext);
+  
   let handleSubmit = async (event) => {
     event.preventDefault();
 
     try{
+      setLoader(true);
       const response = await axios.post("https://registration-form-1-ixkc.onrender.com/user/signup",formData)
       const {message,success} = response.data;
+      setLoader(false);
       if(success){
         toast.success(message);
         navigate("/login");
@@ -59,6 +64,7 @@ const Signup = () => {
   return (
     <Grid
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      style={{opacity: loader ? "0.5" : "1" }}
     >
       <Paper
         style={paperStyle}
@@ -69,7 +75,7 @@ const Signup = () => {
             lg: "30vw",
             xl: "23vw",
           },
-          height: "60vh",
+          height: "65vh",
           mt: 8,
         }}
       >
